@@ -1,4 +1,4 @@
-# TCP_Client_Server
+# NetworkApp
 
 A mini project to create a Client -> Server application. 
 Allows you to send text messages to the server, as well as transfer files.
