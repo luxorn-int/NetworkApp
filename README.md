@@ -12,3 +12,5 @@ Allows you to send text messages to the server, as well as transfer files.
 - **C++ 17**
 - **Boost.Asio**
 - **CMake**
+- **GTest**
+- **GMock**
