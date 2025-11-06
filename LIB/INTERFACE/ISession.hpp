@@ -1,6 +1,6 @@
 #pragma once
 
-class Session
+class ISession
 {
 public:
     enum class SessionState
@@ -10,7 +10,7 @@ public:
         WAIT
     };
 
-    virtual ~Session() = default;
+    virtual ~ISession() = default;
 
     virtual bool connect() = 0;
 
@@ -20,13 +20,13 @@ public:
 
     virtual void close() = 0;
 
-    Session(const Session &) = delete;
+    ISession(const ISession &) = delete;
 
-    Session &operator=(const Session &) = delete;
+    ISession &operator=(const ISession &) = delete;
 
-    Session(Session &&) = default;
-    Session &operator=(Session &&) = default;
+    ISession(ISession &&) = default;
+    ISession &operator=(ISession &&) = default;
 
 protected:
-    Session() = default;
+    ISession() = default;
 };

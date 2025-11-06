@@ -1,8 +1,8 @@
 #pragma once
 
-#include <Session.h>
+#include <ISession.hpp>
 
-class BaseSession : public Session
+class BaseSession : public ISession
 {
 public:
     ~BaseSession() override = default;

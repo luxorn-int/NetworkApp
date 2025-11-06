@@ -1,11 +1,11 @@
 #pragma once
 
-#include <NetworkApp.hpp>
+#include <INetworkApp.hpp>
 #include <SessionManager.h>
 #include <boost/asio.hpp>
 #include <string>
 
-class BaseServer : public NetworkApp
+class BaseServer : public INetworkApp
 {
 public:
     BaseServer();

@@ -1,6 +1,6 @@
 echo -e '\n'----- BUILDING PROJECT ----- 
 
-cmake -DCMAKE_BUILD_TYPE=Debug -G "Visual Studio 17 2022" -B "build/Debug" -A x64
+cmake -DCMAKE_BUILD_TYPE=Debug -B "build/Debug" -A x64
 
 cmake --build build/Debug -j $1
 
