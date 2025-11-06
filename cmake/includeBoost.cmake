@@ -2,17 +2,15 @@ if(POLICY CMP0167)
     cmake_policy(SET CMP0167 NEW)
 endif()
 
-#set(Boost_USE_STATIC_LIBS ON)
-
-set(Boost_ARCHITECTURE "-x64")
-set(Boost_COMPILER "-vc143")
-
 set(Boost_DEBUG OFF)
 
-set(BOOST_ROOT "D:/dev/Frameworks/boost_1_88_0")
-set(Boost_DIR "${BOOST_ROOT}/stage/lib/cmake/Boost-1.88.0")
+# SET YOUR BOOST DIR
+if(WIN32)
+    set(BOOST_ROOT "D:/dev/Frameworks/boost_1_88_0")
+    set(Boost_DIR "${BOOST_ROOT}/stage/lib/cmake/Boost-1.88.0")
+endif ()
 
-find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS filesystem)
 
 if(Boost_FOUND)
     message(STATUS "Boost found: ${Boost_VERSION}")

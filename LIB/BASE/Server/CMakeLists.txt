@@ -4,7 +4,7 @@ SET(DEPENDS_LIST
         INetworkApp
         ISession
         SessionManager
-        Boost::system
+        Boost::filesystem
     )
 SET(ADDITIONAL_INCLUDE_DIR
         ${Boost_INCLUDE_DIRS}

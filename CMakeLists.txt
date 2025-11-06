@@ -10,8 +10,10 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(cmake_colors)
 
-add_compile_definitions(_WIN32_WINNT=0x0A00)
-#add_compile_definitions(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS)
+if(WIN32)
+    add_compile_definitions(_WIN32_WINNT=0x0A00)
+    #add_compile_definitions(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS)
+endif ()
 
 color_message(BLUE "Download Gtest repo")
 
