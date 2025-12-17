@@ -3,11 +3,6 @@
 class INetworkApp
 {
 public:
-    enum class State
-    {
-        RUNNING
-    };
-
     virtual ~INetworkApp() = default;
 
     virtual void run() = 0;

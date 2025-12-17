@@ -1,8 +1,8 @@
-project(BaseClient)
+project(ConnectionAcceptor)
 
 SET(DEPENDS_LIST
-        INetworkApp
+        Singleton
         Boost::filesystem
-    )
+        )
 
 include(lib)

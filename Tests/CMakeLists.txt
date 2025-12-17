@@ -17,10 +17,10 @@ if(MSVC)
 endif()
 
 target_link_libraries(network_tests
-    gtest_main
-    gmock_main
-    BaseServer
-    # BaseClient
+        gtest_main
+        gmock_main
+        BaseServer
+        BaseClient
 )
 
 target_include_directories(network_tests PRIVATE

@@ -2,34 +2,48 @@
 
 #include <INetworkApp.hpp>
 #include <SessionManager.h>
+#include <ConnectionAcceptor.h>
 #include <boost/asio.hpp>
 #include <string>
 
-class BaseServer : public INetworkApp
-{
-public:
-    BaseServer();
+/*
+ * Прием подключений по одному порту
+ * * Работа по UDP по другому порту
+ * * Работа по TCP по другому порту
+ */
 
-    // BaseServer(boost::asio::io_context);
+namespace NetApp {
 
-    BaseServer(unsigned int port,unsigned int clientLimit, std::string splitLoadType);
+    //* performance splitting type
+    enum class SLT {
+        UNIFORM,
+        PRIORITY
+    };
 
-    ~BaseServer() override;
+    class BaseServer : public INetworkApp {
+    public:
+        explicit BaseServer();
 
-    void run() override;
+        explicit BaseServer(uint16_t clientLimit,  SLT splitPerformanceType, unsigned short accepting_port);
 
-    void close() override;
+        // add exiting codes
+        void run() override;
 
-protected:
-    boost::asio::io_context context_;
+        void close() override;
 
-    boost::asio::ip::tcp::acceptor tcp_acceptor_;
+    protected:
+        boost::asio::io_context context_;
 
-    boost::asio::ip::udp::socket udp_acceptor_;
+        unsigned int client_limit_;
 
-    unsigned int client_limit_;
+        unsigned short port_;
 
-    std::string split_load_type_;
+        std::string ipv4_;
 
-    SessionManager sessionMng_;
-};
+        SLT split_load_type_;
+
+        SessionManager sessionMng_;
+
+        ConnectionAcceptor connectionAcceptor_;
+    };
+}

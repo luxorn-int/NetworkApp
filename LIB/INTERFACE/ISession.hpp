@@ -3,16 +3,11 @@
 class ISession
 {
 public:
-    enum class SessionState
-    {
-        INTERRUPTED,
-        CONNECTED,
-        WAIT
-    };
+    enum class STATE {CONNECT, CONNECTING, DISCONNECT, ERR};
 
     virtual ~ISession() = default;
 
-    virtual bool connect() = 0;
+    virtual bool connect_to() = 0;
 
     virtual void disconnect() = 0;
 

@@ -3,8 +3,9 @@
 A mini project to create a Client -> Server application. 
 Allows you to send text messages to the server, as well as transfer files.
 
-## Prepare
+## Prepare for Windows
 - Set your **Boost** location in cmake module `cmake/includeBoost.cmake`
+- BOOST_ROOT, Boost_DIR
 
 ## Desciption:
 

@@ -1,5 +1,6 @@
 SET(INTERFACE_LIST
         INetworkApp
+        IProtocol
         ISession
         )
 

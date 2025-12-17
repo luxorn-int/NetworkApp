@@ -1,28 +1,20 @@
 #include <BaseServer.h>
+#include <iostream>
 
-BaseServer::BaseServer(unsigned int port, unsigned int clientLimit, std::string splitLoadType)
-    : client_limit_(clientLimit)
-    , split_load_type_(std::move(splitLoadType))
-    , tcp_acceptor_(context_)
-    , udp_acceptor_(context_)
+using namespace boost::asio::ip;
 
-{
-    
+void NetApp::BaseServer::run() {
+
 }
 
-BaseServer::~BaseServer()
-{
-    close();
-}
-
-void BaseServer::run()
+NetApp::BaseServer::BaseServer(uint16_t clientLimit, NetApp::SLT splitPerformanceType, unsigned short accepting_port)
+: port_{accepting_port}
 {
 
 }
 
-void BaseServer::close()
+NetApp::BaseServer::BaseServer()
+: port_{12345}, client_limit_{10}, ipv4_(tcp::)
 {
-    sessionMng_.closeAll();
-}
 
-// TODO Дописать Базовый сервер + базовую сессию + заставить работать хоть как-то
+}

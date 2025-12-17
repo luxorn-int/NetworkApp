@@ -1,13 +1,14 @@
 #pragma once
 
 #include <ISession.hpp>
+#include <string_view>
 
 class BaseSession : public ISession
 {
 public:
     ~BaseSession() override = default;
     
-    bool connect() override;
+    bool connect_to() override;
 
     void disconnect() override;
 
@@ -15,18 +16,17 @@ public:
 
     void close() override;
 
+    std::string_view get_session_info();
+
     BaseSession();
 
 private:
     unsigned int session_id_;
 
-    // Если клиент пропал и не отвечает N секунд
     unsigned int interruptTimer_;
- 
-    // Сколько раз надо пытаться переподсоединиться
+
     unsigned int reconnectCount_;
 
-    // Сколько ждать ответа клиента
     unsigned int connectionTimer_;
 
 };
